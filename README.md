@@ -42,16 +42,22 @@ MYSQL_USER=root
 MYSQL_PASSWORD=your_mysql_password
 MYSQL_DATABASE=company_db
 ```
+
 ✅ Replace your ```_google_api_key``` with your key from Google AI Studio.
+
 ✅ Replace your ```_mysql_password``` with your MySQL root password.
 
-###4️⃣ Set up your MySQL database
+
+### 4️⃣ Set up your MySQL database
+
 ✅ Make sure MySQL server is installed & running locally.
+
 ✅ Log into MySQL and create the database ```company_db```:
 ```bash
 CREATE DATABASE company_db;
 ```
 ✅ Then create the ```employees``` table with the expected schema:
+
 ```bash
 USE company_db;
 
@@ -85,11 +91,13 @@ INSERT INTO employees (id, name, department, salary, joining_date, designation, 
 (14, 'Nina', 'Engineering', 88000, '2015-05-18', 'Engineering Manager', 'Bangalore', 9.5),
 (15, 'Om', 'Engineering', 88000, '2016-02-29', 'Engineering Manager', 'Bangalore', 9.0);
 ```
-###5️⃣ Create a ```.gitignore``` file
+### 5️⃣ Create a ```.gitignore``` file
+
 Before pushing your project to GitHub, create a .gitignore file in your project root to exclude sensitive or unnecessary files.
+
 ✅ This ensures your ```.env``` file (with API keys & DB credentials), your virtual environment, and system junk files are not uploaded to GitHub.
 
-###6️⃣ Run the Streamlit app
+### 6️⃣ Run the Streamlit app
 Start the app by running:
 ```bash
 streamlit run app.py
@@ -103,7 +111,7 @@ Who are the employees working in the HR department?
 ```bash
 SELECT * FROM employees WHERE department LIKE '%HR%';
 ```
-###🧾 Assumptions
+### 🧾 Assumptions
 MySQL server is installed and running locally.
 
 1. Database name is ```company_db```.
@@ -120,6 +128,7 @@ MySQL server is installed and running locally.
 
 ### 🤝 Contributing
 Pull requests and suggestions are welcome!
+
 Feel free to open an issue if you find a bug or would like to see a new feature.
 ---
 ✨ Understand your people, one question at a time… with TYD Chatbot.

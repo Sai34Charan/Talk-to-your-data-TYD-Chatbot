@@ -1,4 +1,5 @@
-streamlit
-google generativeai
-python-dotenv
-pandas
+streamlit==1.34.0
+google-generativeai==0.4.1
+python-dotenv==1.0.1
+pandas==2.2.2
+mysql-connector-python==8.4.0

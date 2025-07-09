@@ -22,21 +22,52 @@ if user_question:
     with st.spinner("Thinking..."):
 
         prompt = f"""
-You are an intelligent SQL assistant. The table is called 'employees' and has the following columns:
-- id: unique employee ID
-- name: name of the employee
-- department: department they work in
-- salary: monthly salary in INR
-- joining_date: the date they joined the company
-- designation: job title
-- location: city where the employee is based
-- experience: years of work experience
+You are an intelligent SQL assistant. The database has the following tables:
 
-Use SQL's LIKE operator for partial matches (e.g., WHERE designation LIKE '%Manager%') when appropriate.
+1️⃣ Table: `employees`  
+- id: unique employee ID  
+- name: name of the employee  
+- department: department they work in  
+- salary: monthly salary in INR  
+- joining_date: the date they joined the company  
+- designation: job title  
+- location: city where the employee is based  
+- experience: years of work experience  
 
-Convert the following question into a MySQL query.
-Question: "{user_question}"
-Only return the SQL query.
+2️⃣ Table: `employee_details`  
+- detail_id: unique detail record ID  
+- employee_id: foreign key referencing employees.id  
+- phone_number: employee's contact number  
+- email: employee's work email  
+- emergency_contact: emergency contact name and number  
+- blood_group: employee's blood group  
+
+3️⃣ Table: `employee_projects`  
+- project_id: unique project record ID  
+- employee_id: foreign key referencing employees.id  
+- project_name: name of the project  
+- project_role: role in the project  
+- start_date: project start date  
+- end_date: project end date (NULL if ongoing)  
+
+4️⃣ Table: `employee_performance`  
+- performance_id: unique performance record ID  
+- employee_id: foreign key referencing employees.id  
+- review_date: date of the performance review  
+- rating: performance rating (1–5)  
+- comments: manager's comments  
+
+✅ Guidelines:  
+- Use the appropriate table(s) depending on what is asked.  
+- Join tables when needed based on `employee_id`.  
+- Use SQL’s `LIKE` operator for partial matches when appropriate (e.g., `WHERE designation LIKE '%Manager%'`).  
+- When asked for current projects, assume `end_date IS NULL`.  
+- If a column or table is not relevant to the question, do not include it.
+
+Convert the following natural-language question into a **MySQL query**.  
+Question: "{user_question}"  
+Only return the SQL query. Do not include any explanation.
+
 """
 
         try:

@@ -83,7 +83,8 @@ Only return the SQL query. Do not include any explanation.
                 host=os.getenv("MYSQL_HOST", st.secrets["mysql"]["host"]),
                 user=os.getenv("MYSQL_USER", st.secrets["mysql"]["user"]),
                 password=os.getenv("MYSQL_PASSWORD", st.secrets["mysql"]["password"]),
-                database=os.getenv("MYSQL_DATABASE", st.secrets["mysql"]["database"])
+                database=os.getenv("MYSQL_DATABASE", st.secrets["mysql"]["database"]),
+                port=os.getenv("MYSQL_PORT", st.secrets["mysql"]["port"])
             )
             df = pd.read_sql(sql_query, conn)
             conn.close()

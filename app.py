@@ -8,7 +8,7 @@ import google.generativeai as genai
 load_dotenv()
 
 # Configure Gemini API
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=os.getenv("GEMINI_API_KEY", st.secrets["google_api"]["GEMINI_API_KEY"]))
 
 st.set_page_config(page_title="TYD Chatbot", layout="centered")
 st.title("Talk to your Data")

@@ -80,10 +80,10 @@ Only return the SQL query. Do not include any explanation.
             st.code(sql_query, language="sql")
 
             conn = mysql.connector.connect(
-                host=os.getenv("MYSQL_HOST", st.secrets["my_sql"]["host"]),
-                user=os.getenv("MYSQL_USER", st.secrets["my_sql"]["user"]),
-                password=os.getenv("MYSQL_PASSWORD", st.secrets["my_sql"]["password"]),
-                database=os.getenv("MYSQL_DATABASE", st.secrets["my_sql"]["database"])
+                host=os.getenv("MYSQL_HOST", st.secrets["mysql"]["host"]),
+                user=os.getenv("MYSQL_USER", st.secrets["mysql"]["user"]),
+                password=os.getenv("MYSQL_PASSWORD", st.secrets["mysql"]["password"]),
+                database=os.getenv("MYSQL_DATABASE", st.secrets["mysql"]["database"])
             )
             df = pd.read_sql(sql_query, conn)
             conn.close()
